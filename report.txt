@@ -1,0 +1,14 @@
+For all tasks, it is assumed that the initial points of the particles are inside the objects (circle, Bunimovich Billiard), or even if they are on the boundary, their next reflection 
+off the object should eventually occur. The python animating scripts were achieved with the help of Chat GPT. 
+
+Task 1: if you want to simulate the first task, then you need to run the "RunHorizontalPlane.java" file. It will find the reflection points and write them into the "task1.txt" text file.
+Then, in order to see the animation, you need to run "task1.py" file. If you run the java file, it will also reverse the motion and calculate after how many reflections the paths
+deviate. If you want to change the initial conditions, just change "numberOfReflections" and "delta" variables in the "RunHorizontalPlane.java" file's "main()" method. After some different
+initial conditions, I noticed that some beautiful patterns immerge. This leads me to believe, that particle motion in the first task is not chaotic. 
+
+Task 3: if you want to simulate the third task, then you need to run the "RunHorizontalBilliardPlane.java" file. It will find the reflection points and write them into the "task3.txt" text
+file. Then, in order to see the animation, you need to run "task3.py" file. If you run the java file, it will also create L buckets and fill them with how many times a particle intersects
+the respective line segment. If you want to change the initial conditions, just change "numberOfReflections" and "L" variables in the "RunHorizontalBilliardPlane.java" file's "main()"
+method. Just be careful, if you change "L", you also need to change "L" in the "task3.py" file (under "# L setup" comment). After some different initial conditions, I noticed that, in 
+general, the motion is chaotic: no patterns emerge. Hence, I conclude that motion in the third task is chaotic in general. Why in general? If you run the program with L = 2, initial 
+point = (1, 0), initial impulseX = 1, initial impulseY = 1, then a pattern will emerge. 
