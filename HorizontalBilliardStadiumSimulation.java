@@ -73,7 +73,7 @@ public class HorizontalBilliardStadiumSimulation {
             Point p2 = intersectionPoints.get(1);
 
             if (p1.x() >= 0 && p2.x() >= 0) return null;
-            Point p = getTheRightPoint(p1, p2, impulseX, impulseY);
+            Point p = getTheRightPoint(p1, p2, impulseX, impulseY, 0);
             if (p.x() < 0) return p;
             if (p.x() >= 0) return null;
         }
@@ -113,7 +113,7 @@ public class HorizontalBilliardStadiumSimulation {
             Point p2 = intersectionPoints.get(1);
 
             if (p1.x() <= L && p2.x() <= L) return null;
-            Point p = getTheRightPoint(p1, p2, impulseX, impulseY);
+            Point p = getTheRightPoint(p1, p2, impulseX, impulseY, L);
             if (p.x() > L) return p;
             if (p.x() <= L) return null;
         }
@@ -147,13 +147,13 @@ public class HorizontalBilliardStadiumSimulation {
         return Math.sqrt(Math.pow(a.x() - b.x(), 2) + Math.pow(a.y() - b.y(), 2));
     }
 
-    private static Point getTheRightPoint(Point p1, Point p2, double impulseX, double impulseY) {
+    private static Point getTheRightPoint(Point p1, Point p2, double impulseX, double impulseY, double L) {
         if (impulseX == 0) {
             if (impulseY > 0) return p1.y() > 0 ? p1 : p2;
             else return p1.y() < 0 ? p1 : p2;
         } else if (impulseY == 0) {
-            if (impulseX > 0) return p1.x() > 0 ? p1 : p2;
-            else return p1.x() < 0 ? p1 : p2;
+            if (impulseX > 0) return p1.x() > L ? p1 : p2;
+            else return p1.x() < L ? p1 : p2;
         } else {
             if (impulseX < 0) return p1.x() < p2.x() ? p1 : p2;
             else return p1.x() > p2.x() ? p1 : p2;
